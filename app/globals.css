@@ -1,26 +1,127 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --paper: #fbfaf7;
+  --paper-edge: #f3f1ea;
+  --paper-card: #f7f5f0;
+  --paper-intel: #ede9df;
+  --ink: #1a1e1c;
+  --ink-muted: #3d4240;
+  --ink-faint: #5c635f;
+  --teal: #0f6e56;
+  --teal-deep: #0a4e3d;
+  --teal-dark: #0a3d2e;
+  --teal-darker: #062a20;
+  --teal-soft: #e7f0ec;
+  --nav-bg: #0a3d2e;
+  --nav-fg: #ffffff;
+  --nav-fg-muted: #c9dfd4;
+  --button-primary-bg: #0a3d2e;
+  --button-primary-bg-hover: #062a20;
+  --intel-field-border: #0f6e56;
+  --rule: #d9d5c7;
+  --border-tertiary: #e3e0d6;
+  --amber: #8a5a00;
+  --amber-soft: #fff3dc;
+  --red: #8a2a1c;
+  --red-soft: #fce8e3;
+  --border-radius-lg: 10px;
+  --shadow-card: 0 2px 8px rgba(0, 0, 0, 0.06);
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-paper: var(--paper);
+  --color-paper-edge: var(--paper-edge);
+  --color-paper-card: var(--paper-card);
+  --color-paper-intel: var(--paper-intel);
+  --color-ink: var(--ink);
+  --color-ink-muted: var(--ink-muted);
+  --color-ink-faint: var(--ink-faint);
+  --color-teal: var(--teal);
+  --color-teal-deep: var(--teal-deep);
+  --color-teal-dark: var(--teal-dark);
+  --color-teal-darker: var(--teal-darker);
+  --color-teal-soft: var(--teal-soft);
+  --color-nav-bg: var(--nav-bg);
+  --color-nav-fg: var(--nav-fg);
+  --color-nav-fg-muted: var(--nav-fg-muted);
+  --color-rule: var(--rule);
+  --color-border-tertiary: var(--border-tertiary);
+  --color-amber: var(--amber);
+  --color-amber-soft: var(--amber-soft);
+  --color-red: var(--red);
+  --color-red-soft: var(--red-soft);
+  --font-display: var(--font-display);
+  --font-body: var(--font-body);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+html,
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+::selection {
+  background: var(--teal);
+  color: #fbfaf7;
+}
+
+/* Display serif weight — browser synthesizes 500 from the 400 file
+   loaded via next/font, giving headlines a touch more presence without
+   changing the typographic voice. */
+h1,
+h2,
+.font-display {
+  font-weight: 500;
+}
+
+/* Subtle lift applied to cards and panels that should read as the
+   principal focus of a screen. */
+.shadow-card {
+  box-shadow: var(--shadow-card);
+}
+
+/* Section labels: small caps, bolder, tighter-tracked */
+.section-label {
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: var(--ink-muted);
+}
+
+/* Subtle grain so the paper feels like paper, not flat white */
+.paper-grain {
+  position: relative;
+}
+.paper-grain::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.35;
+  mix-blend-mode: multiply;
+  background-image: radial-gradient(
+    rgba(26, 30, 28, 0.06) 1px,
+    transparent 1px
+  );
+  background-size: 3px 3px;
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+.rise {
+  opacity: 0;
+  animation: rise 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) forwards;
 }
