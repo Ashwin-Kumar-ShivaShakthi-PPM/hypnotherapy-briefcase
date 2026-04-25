@@ -24,6 +24,7 @@ import type * as sessionInternal from "../sessionInternal.js";
 import type * as sessions from "../sessions.js";
 import type * as users from "../users.js";
 import type * as waitlist from "../waitlist.js";
+import type * as waitlistActions from "../waitlistActions.js";
 
 import type {
   ApiFromModules,
@@ -48,6 +49,7 @@ declare const fullApi: ApiFromModules<{
   sessions: typeof sessions;
   users: typeof users;
   waitlist: typeof waitlist;
+  waitlistActions: typeof waitlistActions;
 }>;
 
 /**

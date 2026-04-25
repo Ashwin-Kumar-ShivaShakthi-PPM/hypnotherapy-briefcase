@@ -7,7 +7,7 @@ live state for the sprint. update as facts land. claude reads this at the start 
 - **track**: Revenue
 - **idea**: the hypnotherapy briefcase — ai practice intelligence platform for solo hypnotherapists
 - **live URL**: https://briefcase-waitlist.vercel.app
-- **repo**: TODO — add the github URL
+- **repo**: https://github.com/Ashwin-Kumar-ShivaShakthi-PPM/hypnotherapy-briefcase
 - **stage**: product live · Stripe pending · peer signups needed
 - **first user**: ashwin.kumar@shivashakthippm.com (practitioner login on the live product)
 
@@ -28,6 +28,19 @@ see `./handbook/08-build-process.md` for the scope-doc pattern. keep it tight, n
 ## metrics — revenue track
 
 fill in live numbers. update as they move. rubric lives in `./handbook/09-scoring.md`.
+
+### market size (SOM)
+
+source: [GrowthX TAM/SAM/SOM calculator](https://chatgpt.com/g/g-69e3e8e4f7a88191a36156ceba0f0c05-growthx-tam-sam-som-calculator), run on 2026-04-25.
+
+- **TAM**: $41.5M ARR — global solo hypnotherapists
+- **SAM**: $21.9M ARR — US, UK, Canada, Australia, New Zealand + India (₹2,499/month local pricing)
+- **SOM (year 3)**: $895K ARR — 792 retained paid practitioners (739 english-speaking + 53 india)
+- **pricing**: $99/month english-speaking markets, ₹2,499/month india
+- **beachhead**: solo hypnotherapists in US and UK inside certification school communities
+- **GTM**: community-led — founder already inside NGH, dom's cohort, practitioner telegram groups
+
+### live numbers
 
 - **waitlist signups**: 1 (ananda.advaith@gmail.com, via live URL) — pulled from convex `waitlist` table on 2026-04-24
 - **practitioner signups on the product**: 1 (you)

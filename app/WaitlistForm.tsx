@@ -1,7 +1,7 @@
 "use client";
 
 import { FormEvent, useState } from "react";
-import { useMutation } from "convex/react";
+import { useAction } from "convex/react";
 import { api } from "../convex/_generated/api";
 
 type Status =
@@ -13,14 +13,14 @@ type Status =
 export function WaitlistForm() {
   const [email, setEmail] = useState("");
   const [status, setStatus] = useState<Status>({ kind: "idle" });
-  const addEmail = useMutation(api.waitlist.addEmail);
+  const joinWaitlist = useAction(api.waitlistActions.joinWaitlist);
 
   const onSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (status.kind === "submitting") return;
     setStatus({ kind: "submitting" });
     try {
-      const result = await addEmail({ email });
+      const result = await joinWaitlist({ email });
       setStatus({ kind: "success", alreadyOnList: result.alreadyOnList });
       setEmail("");
     } catch (err) {
